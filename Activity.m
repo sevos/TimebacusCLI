@@ -30,7 +30,7 @@
 {
   NSString * hour_regexp = @"\\d+:\\d\\d";
   NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", hour_regexp];
-  if (([predicate evaluateWithObject:string]) == YES) {
+  if ([predicate evaluateWithObject:string]) {
     NSArray * splittedString = [string componentsSeparatedByString:@":"];
     int hours = [(NSString *)[splittedString objectAtIndex:0] integerValue];
     int minutes = [(NSString *)[splittedString objectAtIndex:1] integerValue];
