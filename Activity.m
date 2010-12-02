@@ -26,6 +26,13 @@
   return self;
 }
 
+- (double) floatDuration
+{
+  return self.duration / 3600.0;
+}
+
+// private
+
 - (void) setDurationWithString:(NSString *) string
 {
   NSString * hour_regexp = @"\\d+:\\d\\d";

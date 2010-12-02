@@ -16,6 +16,7 @@
 
 @property (nonatomic,retain) NSString * description;
 @property long duration;
+@property (readonly) double floatDuration;
 
 - (id) initWithParams:(NSDictionary*) params;
 @end

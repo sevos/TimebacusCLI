@@ -51,4 +51,11 @@
   [activity release];
 }
 
+- (void) testFloatDuration
+{
+  Activity * activity = [[Activity alloc] initWithParams:params];
+  STAssertEquals(activity.floatDuration, 1.5, nil);
+  [activity release];
+}
+
 @end
