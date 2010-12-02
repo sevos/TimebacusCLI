@@ -58,4 +58,19 @@
   [activity release];
 }
 
+- (void) testNaturalDuration
+{
+  Activity * activity = [[Activity alloc] initWithParams:params];
+  STAssertEqualObjects(activity.naturalDuration, @"1:30", nil);
+  [activity release];
+}
+
+- (void) testNaturalDurationAgainstOneDigitMinutes
+{
+  Activity * activity = [[Activity alloc] initWithParams:params];
+  activity.duration = 300;
+  STAssertEqualObjects(activity.naturalDuration, @"0:05", nil);
+  [activity release];
+}
+
 @end

@@ -31,6 +31,13 @@
   return self.duration / 3600.0;
 }
 
+- (NSString *) naturalDuration
+{
+  int hours = self.duration / 3600;
+  int minutes = (self.duration - hours * 3600) / 60;
+  return [NSString stringWithFormat:@"%d:%02d", hours, minutes];
+}
+
 // private
 
 - (void) setDurationWithString:(NSString *) string
