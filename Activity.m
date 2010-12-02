@@ -28,6 +28,15 @@
 
 - (void) setDurationWithString:(NSString *) string
 {
-  self.duration = [string floatValue] * 3600;
+  NSString * hour_regexp = @"\\d+:\\d\\d";
+  NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", hour_regexp];
+  if (([predicate evaluateWithObject:string]) == YES) {
+    NSArray * splittedString = [string componentsSeparatedByString:@":"];
+    int hours = [(NSString *)[splittedString objectAtIndex:0] integerValue];
+    int minutes = [(NSString *)[splittedString objectAtIndex:1] integerValue];
+    self.duration = hours * 3600 + minutes * 60;
+  } else {
+    self.duration = [string floatValue] * 3600;
+  }
 }
 @end
