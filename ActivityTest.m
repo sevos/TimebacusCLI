@@ -73,4 +73,12 @@
   [activity release];
 }
 
+- (void) testBOGUSStringAsDuration
+{
+  [params setValue:@"abc" forKey:@"duration"];
+  Activity * activity = [[Activity alloc] initWithParams:params];
+  STAssertEquals(activity.duration, (long)0, nil);
+  [activity release];
+}
+
 @end
